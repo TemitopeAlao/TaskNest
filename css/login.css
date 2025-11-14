@@ -1,0 +1,138 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: #fff;
+  background-color: #fff;
+}
+
+.login-container h2,
+.signup-container h2 {
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 90%;
+  padding: 12px 30px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+.auth-switch {
+  color: #0d001a;
+  font-size: 13px;
+  font-weight: 500;
+}
+.auth-switch a {
+  color: #fff;
+  font-size: 13px;
+}
+
+.auth-switch a:hover {
+  text-decoration: underline;
+}
+.btn-login {
+  width: 100%;
+  padding: 12px 0;
+  font-size: 1.4rem;
+  color: #fff;
+  background-color: #6a5acd;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 20px 0;
+  box-shadow: 0 4px 12px rgba(106, 90, 205, 0.4);
+}
+
+.btn-login:hover {
+  color: #836fff;
+  background-color: #fff;
+}
+
+.signup-container,
+.login-container {
+  background: #5b3cd6;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  margin-top: 8rem;
+}
+.signup-container {
+  margin: 12rem 0;
+  max-width: 500px;
+}
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.input-group label {
+  display: block;
+  text-align: start;
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #0d001a;
+}
+
+.input-wrapper ion-icon {
+  position: absolute;
+  left: 10px;
+  color: #555;
+  font-size: 20px;
+  margin-top: -20px;
+}
+
+.input-wrapper input {
+  width: 100%;
+  padding: 10px 10px 10px 40px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+.input-wrapper input::placeholder {
+  color: #a9acb0;
+}
+.toast {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  background-color: #4caf50;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 500;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  z-index: 9999;
+}
+
+.toast.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.error-message {
+  display: block;
+  color: #eb2913;
+  font-size: 12px;
+  text-align: start;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}

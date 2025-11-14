@@ -1,0 +1,116 @@
+body.dark-mode {
+  background: linear-gradient(135deg, #1f1529, #2b1f39, #120a1a);
+  color: #e2d9f3;
+}
+
+body.dark-mode .container {
+  background: #2b1f39;
+  box-shadow: 0px 0px 20px rgba(26, 8, 8, 0.2), 0px 0px 35px #120a1a;
+}
+
+body.dark-mode .screen-content {
+  background-color: #1d0f2d;
+  color: #f0eafc;
+}
+
+body.dark-mode .math.equal {
+  background-color: #8b69b3;
+  color: #fff;
+}
+
+body.dark-mode .number-container li {
+  background: #3f2e54;
+  color: #e2d9f3;
+
+  box-shadow: 0px 0px 20px #160827, 0px 0px 35px rgba(45, 20, 66, 0.9);
+}
+
+body.dark-mode .percentage-container {
+  background: #3b2a4e;
+  border-color: rgba(180, 150, 220, 0.8);
+  color: #e2d9f3;
+}
+
+body.dark-mode #percentage-slider {
+  background: #765d93;
+}
+
+body.dark-mode #percentage-slider::-webkit-slider-thumb {
+  background: linear-gradient(130deg, #29193f, #1e0b33);
+}
+
+/* toggle switch */
+/* From Uiverse.io by JkHuger */
+.switch-bulb {
+  display: block;
+  margin: 1.5rem 0;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.489);
+  border-radius: 0.75rem;
+  box-shadow: 0.125rem 0.125rem 0 0.125rem rgba(0, 0, 0, 0.1) inset;
+  color: #fdea7b;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem;
+  width: 3rem;
+  height: 1.8rem;
+  transition: background-color 0.1s 0.3s ease-out, box-shadow 0.1s 0.3s ease-out;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.switch-bulb:before,
+.switch-bulb:after {
+  content: "";
+  display: block;
+}
+
+.switch-bulb:before {
+  background-color: currentColor; /* bulb ON color */
+  border-radius: 50%;
+  width: 1.2rem;
+  height: 1.2rem;
+  transform: translateX(125%);
+  transition: background-color 0.1s 0.3s ease-out, transform 0.3s ease-out;
+  z-index: 1;
+}
+
+.switch-bulb:after {
+  background: linear-gradient(transparent 50%, rgba(0, 0, 0, 0.15) 0) 0 50% /
+      50% 100%,
+    repeating-linear-gradient(90deg, #bbb 0, #bbb, #bbb 20%, #999 20%, #999 40%)
+      0 50% / 50% 100%,
+    radial-gradient(circle at 50% 50%, #888 25%, transparent 26%);
+  background-repeat: no-repeat;
+  border: 0.25rem solid transparent;
+  border-left: 0.4rem solid currentColor;
+  border-right: 0 solid transparent;
+  transform: translateX(-2.5%) rotateY(180deg);
+  transform-origin: 25% 50%;
+  width: 1.2rem;
+  height: 1rem;
+  box-sizing: border-box;
+  transition: border-left-color 0.1s 0.3s ease-out, transform 0.3s ease-out;
+}
+
+/* Checked = dark mode (bulb OFF) */
+.switch-bulb:checked {
+  background-color: rgba(0, 0, 0, 0.3);
+  box-shadow: 0.125rem 0.125rem 0 0.125rem rgba(0, 0, 0, 0.3) inset;
+}
+
+.switch-bulb:checked:before {
+  background-color: #d7d7d7;
+  transform: translateX(0%);
+}
+
+.switch-bulb:checked:after {
+  border-left-color: #d8d8d8;
+  transform: translateX(-22.5%) rotateY(0deg);
+}
+
+.switch-bulb:focus {
+  outline: 0;
+}

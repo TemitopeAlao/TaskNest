@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TaskNest - Login</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/assets/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/assets/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./assets/favicon/site.webmanifest" />
+    <link rel="icon" href="/assets/favicon/favicon.ico" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Anton&display=swap"
+      rel="stylesheet"
+    />
+  <link rel="stylesheet" href="/css/global.css"/>
+        <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/toggle.css">
+        <link rel="stylesheet" href="/css/login.css" />
+  
+  </head>
+  <body>
+    <header>
+     <nav>
+        <a href="landing.html"class="logo__text">TaskNest</h1>
+
+        <div class="nav__actions">
+          <a href="login.html" class="login">Login</a>
+          <a href="signup.html" class="signup">Sign Up</a>
+          <input class="switch-bulb"  type="checkbox"/>
+        </div>
+      </nav>
+      </header>
+    <div class="login-container">
+      <h2>Login to TaskNest</h2>
+      <form id="login-form" novalidate>
+        <div class="input-group">
+          <label for="email">Email</label>
+          <div class="input-wrapper">
+            <ion-icon name="mail-outline"></ion-icon>
+            <input
+              type="email"
+              id="email"
+              placeholder="Enter your email"
+              required
+            />
+          </div>
+          <div class="error-message" id="email-error"></div>
+        </div>
+
+        <div class="input-group">
+          <label for="password">Password</label>
+          <div class="input-wrapper">
+            <ion-icon name="lock-closed-outline"></ion-icon>
+            <input
+              type="password"
+              id="password"
+              placeholder="Enter your password"
+              required
+            />
+          </div>
+          <div class="error-message" id="password-error"></div>
+        </div>
+
+        <button type="submit" class="btn-login">Login</button>
+      </form>
+
+      <p class="auth-switch">
+        Don't have an account?
+        <a href="signup.html">Sign up</a>
+      </p>
+    </div>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+
+    <script src="/js/auth.js"></script>
+  </body>
+</html>

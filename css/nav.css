@@ -1,0 +1,161 @@
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 200;
+}
+
+nav {
+  padding: 1rem 8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #5200a3;
+}
+
+.logo__text {
+  font-family: "Anton", sans-serif;
+  color: #ffe6ff;
+  font-size: 2.4rem;
+}
+
+.nav__list {
+  display: flex;
+  gap: 4rem;
+}
+
+.nav__item a,
+.login,
+.signup {
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #ffe6ff;
+  text-decoration: none;
+}
+.nav__item a:hover {
+  color: rgb(216, 81, 103);
+}
+
+.signup {
+  border: 1px solid #f2e6ff;
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+}
+
+.nav__actions {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.mobile-only {
+  display: none;
+}
+
+.btn__mobile-nav {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: none;
+  position: fixed;
+  right: 2rem;
+  top: 1.5rem;
+  z-index: 300;
+}
+
+.icon__mobile-nav {
+  width: 3.5rem;
+  height: 3.5rem;
+  color: #ffe6ff;
+}
+
+.icon__mobile-nav[name="close-outline"] {
+  display: none;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s ease;
+  z-index: 150;
+}
+
+.nav-open .overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media (max-width: 980px) {
+  nav {
+    padding: 1rem 3rem;
+  }
+
+  .btn__mobile-nav {
+    display: block;
+  }
+
+  .nav__actions {
+    display: none;
+  }
+
+  .nav__list {
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 60%;
+    height: 100vh;
+    background: #ffffff;
+    padding: 6rem 5rem;
+    gap: 4rem;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 250;
+  }
+
+  .nav__item a {
+    color: #5200a3;
+    font-size: 1.8rem;
+    transition: all 0.3s;
+  }
+
+  .nav__item a:hover {
+    background-color: #a37cca;
+    color: #fff;
+    padding: 0.1rem 3rem;
+  }
+
+  .mobile-only {
+    display: block;
+  }
+
+  .nav-open .nav__list {
+    transform: translateX(0);
+  }
+
+  .nav-open .overlay {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav-open .icon__mobile-nav[name="menu-outline"] {
+    display: none;
+  }
+
+  .nav-open .icon__mobile-nav[name="close-outline"] {
+    display: block;
+    color: #5200a3;
+  }
+}
+
+@media (max-width: 430px) {
+  .nav__list {
+    gap: 3rem;
+  }
+  .nav__item a {
+    font-size: 1.5rem;
+  }
+}
