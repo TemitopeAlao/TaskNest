@@ -1,28 +1,46 @@
 function showToast(message) {
-  const toast = document.createElement("div");
-  toast.className = "toast";
+  const toast = document.getElementById("toast");
   toast.textContent = message;
-  document.body.appendChild(toast);
+  toast.style.background = type === "error" ? "#e74c3c" : "#2ecc71";
+  toast.classList.add("show");
 
-  setTimeout(() => toast.classList.add("show"), 100);
   setTimeout(() => {
     toast.classList.remove("show");
-    setTimeout(() => toast.remove(), 400);
-  }, 3000);
+  }, 2000);
 }
 
-const signupForm = document.getElementById("signup-form");
+function setLoading(button, isLoading) {
+  if (isLoading) {
+    button.disabled = true;
+    button.dataset.original = button.textContent;
+    button.innerHTML = `
+      <span class="spinner"></span>
+      <span class="loading-dots">Loading...</span>
+    `;
+  } else {
+    button.disabled = false;
+    button.textContent = button.dataset.original;
+  }
+}
 
-signupForm.addEventListener("submit", (e) => {
-  e.preventDefault();
+function showModal(message) {
+  const modal = document.getElementById("successModal");
+  const modalMsg = document.getElementById("modalMessage");
 
-  // Get input elements
+  modalMsg.textContent = message;
+  modal.style.display = "flex";
+
+  setTimeout(() => {
+    modal.style.display = "none";
+  }, 1500);
+}
+
+function validateSignupForm() {
   const nameInput = document.getElementById("name");
   const emailInput = document.getElementById("email");
   const passwordInput = document.getElementById("password");
   const confirmPasswordInput = document.getElementById("confirm-password");
 
-  // Get error message divs
   const nameError = document.getElementById("name-error");
   const emailError = document.getElementById("email-error");
   const passwordError = document.getElementById("password-error");
@@ -30,54 +48,46 @@ signupForm.addEventListener("submit", (e) => {
     "confirm-password-error"
   );
 
-  // Reset previous errors
   [nameError, emailError, passwordError, confirmPasswordError].forEach(
     (el) => (el.textContent = "")
   );
+
   [nameInput, emailInput, passwordInput, confirmPasswordInput].forEach(
     (el) => (el.style.borderLeft = "none")
   );
 
   let valid = true;
 
-  // Helper to mark error
   function markError(input, errorDiv, message) {
     errorDiv.textContent = message;
-    input.style.borderLeft = "5px solid #e74c3c"; // red left border only
+    input.style.borderLeft = "5px solid #e74c3c";
     valid = false;
   }
 
-  // Name validation
-  if (!nameInput.value.trim()) {
-    markError(nameInput, nameError, "Full name is required.");
-  }
-
-  // Email validation
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const passwordPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{5,}$/;
+
+  if (!nameInput.value.trim())
+    markError(nameInput, nameError, "Full name is required.");
   if (!emailInput.value.trim()) {
     markError(emailInput, emailError, "Email is required.");
   } else if (!emailPattern.test(emailInput.value.trim())) {
-    markError(emailInput, emailError, "Enter a valid email address.");
+    markError(emailInput, emailError, "Enter a valid email.");
   }
-
-  // Password validation
-  const passwordPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{5,}$/;
   if (!passwordInput.value.trim()) {
     markError(passwordInput, passwordError, "Password is required.");
   } else if (!passwordPattern.test(passwordInput.value.trim())) {
     markError(
       passwordInput,
       passwordError,
-      "Password must be 5+ chars, include 1 uppercase, 1 number & 1 special char."
+      "Password must include uppercase, number, special char and be 5+ chars."
     );
   }
-
-  // Confirm password validation
   if (!confirmPasswordInput.value.trim()) {
     markError(
       confirmPasswordInput,
       confirmPasswordError,
-      "Please confirm your password."
+      "Please confirm password."
     );
   } else if (passwordInput.value.trim() !== confirmPasswordInput.value.trim()) {
     markError(
@@ -87,19 +97,119 @@ signupForm.addEventListener("submit", (e) => {
     );
   }
 
-  if (!valid) return;
+  return valid;
+}
 
-  // Save user to sessionStorage
-  const user = {
-    name: nameInput.value.trim(),
-    email: emailInput.value.trim(),
-    password: passwordInput.value.trim(),
-  };
-  sessionStorage.setItem("user", JSON.stringify(user));
+const authSignup = async function (e) {
+  e.preventDefault();
+  const signupBtn = document.querySelector(".btn-login");
+  setLoading(signupBtn, true);
 
-  // Show success toast and redirect
-  showToast("Signup successful!");
-  setTimeout(() => {
-    window.location.href = "dashboard.html";
-  }, 2000);
-});
+  const isValid = validateSignupForm();
+  if (!isValid) {
+    setLoading(signupBtn, false);
+    return;
+  }
+
+  const name = document.querySelector(".signup-name").value;
+  const email = document.querySelector(".signup-email").value;
+  const password = document.querySelector(".signup-password").value;
+
+  try {
+    const res = await fetch(
+      "https://x8ki-letl-twmt.n7.xano.io/api:o02AIwfn/auth/signup",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, password }),
+      }
+    );
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      if (data.message?.toLowerCase().includes("email")) {
+        showToast("This email is already in use.", "error");
+      } else {
+        showToast(data.message || "Signup failed.", "error");
+      }
+      setLoading(signupBtn, false);
+      return;
+    }
+
+    setTimeout(() => {
+      showModal("Your Account has been successfully created!");
+    }, 200);
+
+    setTimeout(() => {
+      window.location.href = "login.html";
+    }, 1200);
+  } catch (err) {
+    showToast("Network error. Try again.", "error");
+  } finally {
+    setLoading(signupBtn, false);
+  }
+};
+
+const authLogin = async function (e) {
+  e.preventDefault();
+
+  const loginBtn = document.querySelector(".btn-login");
+  const errorDiv = document.getElementById("login-error");
+
+  errorDiv.textContent = "";
+  setLoading(loginBtn, true);
+
+  const email = document.querySelector(".login-email").value.trim();
+  const password = document.querySelector(".login-password").value.trim();
+
+  const passwordPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{5,}$/;
+
+  if (!email || !password) {
+    showToast("Email and password are required.", "error");
+    setLoading(loginBtn, false);
+    return;
+  }
+
+  if (!passwordPattern.test(password)) {
+    errorDiv.textContent =
+      "Password must include uppercase, number, special character and be 5+ characters.";
+    setLoading(loginBtn, false);
+    return;
+  }
+
+  try {
+    const res = await fetch(
+      "https://x8ki-letl-twmt.n7.xano.io/api:o02AIwfn/auth/login",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      }
+    );
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      showToast("Incorrect email or password.", "error");
+      setLoading(loginBtn, false);
+      return;
+    }
+
+    localStorage.setItem("userToken", data.authToken);
+    localStorage.setItem("userId", data.user_id);
+
+    showToast("Login successful!");
+
+    setTimeout(() => {
+      window.location.href = "dashboard.html";
+    }, 1200);
+  } catch (err) {
+    showToast("Network error. Try again.", "error");
+  } finally {
+    setLoading(loginBtn, false);
+  }
+};
+
+document.querySelector("#signup-form")?.addEventListener("submit", authSignup);
+document.querySelector("#login-form")?.addEventListener("submit", authLogin);

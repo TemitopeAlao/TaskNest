@@ -83,18 +83,18 @@ nav {
   z-index: 150;
 }
 
-.nav-open .overlay {
-  opacity: 1;
-  pointer-events: auto;
-}
-
 @media (max-width: 980px) {
   nav {
     padding: 1rem 3rem;
+    z-index: 5000;
   }
 
   .btn__mobile-nav {
     display: block;
+  }
+
+  .close {
+    margin-top: 1.5rem;
   }
 
   .nav__actions {

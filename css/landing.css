@@ -47,6 +47,7 @@
   padding: 1.3rem 2.5rem;
   width: fit-content;
   background: rgba(45, 20, 66, 0.9);
+  box-shadow: 5px 5px 8px rgba(45, 20, 66, 0.9);
   color: #ffe6ff;
   border-radius: 8px;
   transition: all 0.3s;
@@ -56,6 +57,7 @@
 .hero__cta:hover {
   background: #800080;
   color: #ffe6ff;
+  transform: translateY(-2px);
 }
 #about {
   padding: 6rem 8rem;

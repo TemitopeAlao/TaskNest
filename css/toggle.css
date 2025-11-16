@@ -1,44 +1,3 @@
-body.dark-mode {
-  background: linear-gradient(135deg, #1f1529, #2b1f39, #120a1a);
-  color: #e2d9f3;
-}
-
-body.dark-mode .container {
-  background: #2b1f39;
-  box-shadow: 0px 0px 20px rgba(26, 8, 8, 0.2), 0px 0px 35px #120a1a;
-}
-
-body.dark-mode .screen-content {
-  background-color: #1d0f2d;
-  color: #f0eafc;
-}
-
-body.dark-mode .math.equal {
-  background-color: #8b69b3;
-  color: #fff;
-}
-
-body.dark-mode .number-container li {
-  background: #3f2e54;
-  color: #e2d9f3;
-
-  box-shadow: 0px 0px 20px #160827, 0px 0px 35px rgba(45, 20, 66, 0.9);
-}
-
-body.dark-mode .percentage-container {
-  background: #3b2a4e;
-  border-color: rgba(180, 150, 220, 0.8);
-  color: #e2d9f3;
-}
-
-body.dark-mode #percentage-slider {
-  background: #765d93;
-}
-
-body.dark-mode #percentage-slider::-webkit-slider-thumb {
-  background: linear-gradient(130deg, #29193f, #1e0b33);
-}
-
 /* toggle switch */
 /* From Uiverse.io by JkHuger */
 .switch-bulb {
@@ -113,4 +72,76 @@ body.dark-mode #percentage-slider::-webkit-slider-thumb {
 
 .switch-bulb:focus {
   outline: 0;
+}
+
+body.dark-mode {
+  background: linear-gradient(135deg, #1f1529, #2b1f39, #120a1a);
+  color: #e2d9f3;
+}
+
+body.dark-mode #about {
+  background-color: #181818;
+  color: #fff;
+}
+
+body.dark-mode #features {
+  background-color: #000;
+  color: #e2d9f3;
+}
+
+body.dark-mode .features__item {
+  background: linear-gradient(135deg, #1f1529, #2b1f39, #120a1a);
+  background: #24172f;
+  border: 1px solid #3a2d47;
+}
+body.dark-mode .features__item:hover {
+  transform: translateY(2px);
+  background: #d9c2ff;
+}
+body.dark-mode .about__title,
+body.dark-mode .features__title,
+body.dark-mode .plans-title {
+  color: #962eff;
+}
+
+body.dark-mode #about h2 {
+  color: #e2d9f3;
+}
+body.dark-mode #hero {
+  background: #000;
+  color: #cfc4dd;
+  box-shadow: 0px 0px 20px #160827, 0px 0px 35px rgba(45, 20, 66, 0.9);
+}
+body.dark-mode nav {
+  background: #181818;
+  color: #e2d9f3;
+  border-bottom: 1px solid #716f74;
+}
+body.dark-mode .hero__cta {
+  background-color: #962eff;
+  box-shadow: 5px 5px 2px rgb(150, 46, 255);
+}
+
+body.dark-mode .hero__cta:hover {
+  background: #21073b;
+  color: #ffe6ff;
+  transform: translateY(-2px);
+}
+body.dark-mode .hero__content p {
+  color: #919191;
+}
+body.dark-mode .signup-container,
+body.dark-mode .login-container,
+body.dark-mode .section-plans,
+body.dark-mode .card {
+  background: linear-gradient(135deg, #1f1529, #2b1f39, #120a1a);
+  color: #e2d9f3;
+}
+
+body.dark-mode .input-group label {
+  color: #d8d8d8;
+  font-weight: 200;
+}
+body.dark-mode .auth-switch {
+  color: #e2d9f3;
 }
