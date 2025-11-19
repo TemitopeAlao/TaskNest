@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TaskNest - Dashboard</title>
+
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/assets/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/assets/favicon/favicon-16x16.png"
+    />
+    <link rel="icon" href="/assets/favicon/favicon.ico" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Anton&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/css/global.css" />
+    <link rel="stylesheet" href="/css/dashboard.css" />
+    <link rel="stylesheet" href="/css/toast.css" />
+    <link rel="stylesheet" href="/css/toggle.css" />
+    <link rel="stylesheet" href="/css/task.css" />
+
+  </head>
+  <body>
+    <header class="dashboard-header">
+      <a href="landing.html" class="logo__text">TaskNest</a>
+
+      <form class="header__search" role="search">
+        <input
+          type="search"
+          placeholder="Search your task here..."
+          id="search"
+        />
+        <div class="search__icon">
+          <ion-icon name="search-outline"></ion-icon>
+        </div>
+      </form>
+
+      <div class="header__list">
+        <ul class="header__icons">
+          <li>
+            <ion-icon name="alarm-outline"></ion-icon>
+          </li>
+          <li id="calendarTrigger">
+            <ion-icon name="calendar-outline"></ion-icon>
+          </li>
+        </ul>
+        <input type="date" id="headerDatePicker" style="display: none" />
+        <div class="header__date">
+          <p class="day">Wed</p>
+          <p class="date">28/05/2026</p>
+        </div>
+        <input class="switch-bulb" type="checkbox" />
+      </div>
+    </header>
+    <main>
+      <nav class="side__nav">
+        <div class="side__nav-profile">
+          <div class="side__nav-img">
+            <img
+              src="https://avatar.iran.liara.run/public"
+              alt="avatar image"
+              class="avatar-img"
+              id="avatar"
+            />
+          </div>
+
+          <label class="upload-btn" for="file">⬆ Upload Image</label>
+          <input id="file" type="file" accept="image/*" hidden />
+
+          <div class="profile-info">
+            <p class="user_name">Alao Temitope</p>
+            <p class="user_email">alaotemitope36@gmail.com</p>
+          </div>
+        </div>
+        <div class="nav-list-box">
+          <ul class="side__nav-lists">
+            <li id="dashboard-link">
+              <ion-icon name="pie-chart"></ion-icon>
+              <span>Dashboard</span>
+            </li>
+            <li>
+              <ion-icon name="wallet-outline"></ion-icon>
+              <span>My Task</span>
+            </li>
+            <li>
+              <ion-icon name="list-outline"></ion-icon>
+              <span>Task Categories</span>
+            </li>
+            <li>
+              <ion-icon name="alert"></ion-icon>
+              <span>Vital Task</span>
+            </li>
+          </ul>
+          <div class="logout">
+            <ion-icon name="log-out-outline"></ion-icon>
+            <span>Logout</span>
+          </div>
+        </div>
+      </nav>
+
+      <div class="dashboard-container">
+        <h1 class="welcome">Welcome back, <span class="user-name"></span>👋</h1>
+
+        <section id="dashboard-overview">
+          <div class="to-do">
+            <div class="task-group-header">
+              <ion-icon name="receipt-outline"></ion-icon>
+              <h3>To-Do</h3>
+              <button id="addTaskBtn"><span>&plus;</span>Add Task</button>
+            </div>
+
+            <div id="todoList" class="task-list">
+              <button id="addNewTaskBtn">
+                <ion-icon name="add-circle-outline"></ion-icon>
+              </button>
+              <p>Create your first task...</p>
+            </div>
+          </div>
+          <div class="dashboard">
+            <div class="task-status">
+              <div class="task-group-header">
+                <ion-icon name="podium-outline"></ion-icon>
+                <h3>Task Status</h3>
+              </div>
+              <div class="progress-chart">
+                <div class="circular-chart">
+                  <div class="circle">
+                    <span class="percent">0%</span>
+                  </div>
+                  <p class="status-name">
+                    <span class="small-dot green"></span>Completed
+                  </p>
+                </div>
+                <div class="circular-chart">
+                  <div class="circle">
+                    <span class="percent">0%</span>
+                  </div>
+                  <p class="status-name">
+                    <span class="small-dot blue"></span>In Progress
+                  </p>
+                </div>
+                <div class="circular-chart">
+                  <div class="circle">
+                    <span class="percent">0%</span>
+                  </div>
+                  <p class="status-name">
+                    <span class="small-dot red"></span> Overdue
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="completed-task">
+              <div class="task-group-header">
+                <ion-icon name="bag-check-outline"></ion-icon>
+                <h3>Completed Task</h3>
+              </div>
+
+              <div id="completedList" class="task-list"></div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <div id="addTaskForm" class="add__Task">
+      <div class="modal-form">
+        <div class="form-title">
+          <h2>Create New Task</h2>
+          <button type="button">&lArr; Go Back</button>
+        </div>
+
+        <form class="task-form">
+          <label for="title">Title</label>
+          <input type="text" id="title" required />
+
+          <label for="date">Date</label>
+          <input type="date" id="date" required />
+
+          <label for="priority">Priority</label>
+          <div class="check-priority">
+            <div class="priority">
+              <p class="status-name">
+                <span class="small-dot red"></span> Extreme
+              </p>
+              <input type="radio" name="priority" value="extreme" />
+            </div>
+
+            <div class="priority">
+              <p class="status-name">
+                <span class="small-dot green"></span> Moderate
+              </p>
+              <input type="radio" name="priority" value="moderate" />
+            </div>
+
+            <div class="priority">
+              <p class="status-name">
+                <span class="small-dot yellow"></span> Low
+              </p>
+              <input type="radio" name="priority" value="low" />
+            </div>
+          </div>
+
+          <label for="description">Task Description</label>
+          <textarea
+            id="description"
+            placeholder="Start writing here..."
+          ></textarea>
+          <button type="submit" class="done-btn">Done</button>
+        </form>
+      </div>
+    </div>
+    <div id="toast" class="toast"></div>
+  </body>
+  <script
+    type="module"
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+  ></script>
+  <script
+    nomodule
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+  ></script>
+
+  <script type="module" src="../js/main.js"></script>
+  <script type="module" src="../js/api.js"></script>
+  <script type="module" src="../js/auth.js"></script>
+  <script type="module" src="../js/task.js"></script>
+  <script type="module" src="../js/dashboard.js"></script>
+</html>

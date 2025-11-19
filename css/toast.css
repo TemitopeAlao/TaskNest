@@ -17,6 +17,15 @@
   z-index: 9999;
 }
 
+.error-message {
+  display: block;
+  color: #eb2913;
+  font-size: 12px;
+  text-align: start;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
 .toast.show {
   opacity: 1;
   pointer-events: auto;
@@ -38,12 +47,13 @@
   }
 }
 
-.success-modal {
+.success-modal,
+.add__Task {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.6);
-  display: none;
   align-items: center;
+  display: none;
   justify-content: center;
   z-index: 99999;
 }

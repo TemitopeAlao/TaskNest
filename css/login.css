@@ -24,6 +24,7 @@ input[type="password"] {
   border-radius: 8px;
   font-size: 1rem;
 }
+
 .auth-switch {
   color: #0d001a;
   font-size: 13px;
@@ -45,7 +46,7 @@ input[type="password"] {
   background-color: #6a5acd;
   border: none;
   border-radius: 8px;
-  cursor: pointer;
+
   transition: all 0.3s ease;
   margin: 20px 0;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
@@ -104,36 +105,4 @@ input[type="password"] {
 
 .input-wrapper input::placeholder {
   color: #a9acb0;
-}
-.toast {
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  background-color: #4caf50;
-  color: #fff;
-  padding: 12px 20px;
-  border-radius: 6px;
-  font-size: 15px;
-  font-weight: 500;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(-20px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
-  z-index: 9999;
-}
-
-.toast.show {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0);
-}
-
-.error-message {
-  display: block;
-  color: #eb2913;
-  font-size: 12px;
-  text-align: start;
-  margin-top: -10px;
-  margin-bottom: 10px;
 }

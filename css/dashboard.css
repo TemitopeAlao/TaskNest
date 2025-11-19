@@ -1,0 +1,477 @@
+.dashboard-header {
+  padding: 1.5rem 8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f1e7fa;
+}
+
+body {
+  background-color: #f5f8ff;
+  height: 100vh;
+}
+
+.logo__text {
+  font-family: "Anton", sans-serif;
+  color: #c541c5;
+  font-size: 2.4rem;
+}
+.header__list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+}
+
+.header__icons,
+.header__search {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.search__icon,
+.header__icons li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  color: #fff;
+  font-size: 2.2rem;
+  border-radius: 8px;
+  background-color: #5200a3;
+  box-shadow: 0px 5px 4px #5100a340;
+}
+.header__icons {
+  gap: 1rem;
+}
+ion-icon {
+  text-align: center;
+}
+.header__date {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+.header__date .date {
+  color: rgb(89, 89, 224);
+}
+.search__icon {
+  margin-left: -2rem;
+}
+
+#search {
+  width: 48rem;
+  height: 3.4rem;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  padding-left: 1.2rem;
+  box-shadow: 5px 5px 5px #99999979;
+}
+
+#search::placeholder {
+  font-size: 1.2rem;
+  color: #999;
+}
+
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  /*overflow-y: auto;*/
+}
+main {
+  display: grid;
+  grid-template-columns: 28rem 1fr;
+  gap: 6rem;
+  margin-top: 3rem;
+  border-radius: 6px;
+  height: calc(100vh - 100px);
+}
+.side__nav {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #5200a3;
+  padding: 1rem 4rem;
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 500;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.side__nav-img {
+  margin-top: -3rem;
+  margin-bottom: 1rem;
+  width: 7rem;
+  height: 7rem;
+  overflow: hidden;
+  border-radius: 50%;
+  background-color: #f1e7fa;
+  border: 2px solid rgb(249, 243, 243);
+}
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.upload-btn {
+  display: inline-block;
+  padding: 0.5rem 1.4rem;
+  background: #fff;
+  color: #5200a3;
+  cursor: pointer;
+  border-radius: 0.6rem;
+  font-weight: 400;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.upload-btn:hover {
+  background: #e6e1eb;
+}
+
+.side__nav-lists {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.side__nav-lists li,
+.logout {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  width: 100%;
+  padding: 0.8rem 0;
+  border-radius: 6px;
+}
+
+.side__nav-lists li ion-icon,
+.logout ion-icon {
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+.side__nav-lists li:hover,
+.logout:hover {
+  color: #c541c5;
+}
+.clicked-nav {
+  background: #fff;
+  color: #5200a3;
+  border-radius: 6px;
+  padding: 0.8rem 0;
+  transition: all 0.3s;
+}
+.logout {
+  margin-top: auto;
+  margin-bottom: 1.2rem;
+}
+
+.profile-info {
+  padding-top: 1rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  margin-top: 0.12rem;
+  text-align: center;
+}
+.side__nav-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.user_email {
+  font-weight: 300;
+  font-size: 1.2rem;
+}
+
+.welcome {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin: 0;
+  padding-bottom: 1rem;
+  color: #5200a3;
+}
+#dashboard-overview {
+  height: 100vh;
+  padding: 2rem;
+  margin-bottom: 3rem;
+  margin-right: 8rem;
+  background: #f5f8ff;
+  border: 1px solid #fffdfd75;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+.to-do,
+.task-status,
+.completed-task {
+  background: #f5f8ff;
+  padding: 2rem 3rem;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 2rem;
+}
+
+.nav-list-box {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.task-list {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.task-card {
+  background: #fafafa;
+  padding: 1rem;
+  border-radius: 12px;
+}
+.task-group-header {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+.task-group-header h3 {
+  font-size: 1.3rem;
+  color: #ff6767;
+  font-weight: 600;
+}
+
+.task-group-header ion-icon {
+  font-size: 2.4rem;
+  color: #999;
+}
+#todoList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: #888;
+}
+#todoList ion-icon {
+  font-size: 6.4rem;
+}
+#todoList p {
+  font-size: 2rem;
+  text-align: center;
+}
+
+#addTaskBtn,
+.form-title button {
+  background: none;
+  outline: none;
+  border: none;
+  margin-left: auto;
+  color: #999;
+}
+.form-title button {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #000;
+  text-decoration: underline;
+}
+.form-title button:hover {
+  color: #999;
+  text-decoration: none;
+}
+#addTaskBtn span {
+  font-size: 2rem;
+  color: #ff6767;
+  margin-right: 1rem;
+}
+#addNewTaskBtn {
+  background: none;
+  outline: none;
+  border: none;
+  margin-top: -20%;
+  color: #999;
+}
+
+#addNewTaskBtn:hover {
+  background: #ede8f1;
+  color: #fff;
+}
+.progress-chart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+.circular-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.circle {
+  position: relative;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  margin-top: 2.5rem;
+  display: flex;
+  justify-content: center;
+  border: 0.15rem solid #eee;
+  padding: 0.1rem;
+  align-items: center;
+  background: conic-gradient(gray 0deg, gray 360deg); /* initial gray */
+}
+
+.circle span {
+  position: absolute;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #000;
+}
+
+.small-dot {
+  display: inline-block;
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.blue {
+  background-color: #0225ff;
+}
+.red {
+  background-color: red;
+}
+.green {
+  background-color: #05a301;
+}
+.yellow {
+  background-color: yellow;
+}
+
+.modal-form {
+  color: #333;
+  max-width: 60%;
+  padding: 3rem 4rem;
+  margin: 2.5rem auto;
+  background-color: #f5f8ff;
+  border-radius: 6px;
+  max-height: 92vh;
+  overflow-y: auto;
+}
+.form-title {
+  display: flex;
+  margin-bottom: 2.5rem;
+}
+.form-title h2 {
+  font-size: 2rem;
+  display: block;
+  width: 24%;
+  border-bottom: 2px solid #5200a3;
+}
+.task-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 90%;
+  padding: 1rem 3rem;
+  margin: auto;
+  gap: 0.8rem;
+  border: 1px solid #5555557b;
+}
+.task-form label {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-top: 1rem;
+}
+.task-form input[type="text"],
+.task-form input[type="date"] {
+  width: 100%;
+  height: 3.5rem;
+  outline: none;
+  border-radius: 4px;
+  border: 1.4px solid #9999997a;
+  padding: 1rem;
+}
+textarea,
+#search:focus,
+.task-form input:focus {
+  border: 1.2px solid #5200a3;
+}
+textarea {
+  resize: vertical;
+  min-height: 10rem;
+  max-height: 25rem;
+  outline: none;
+  border-radius: 4px;
+  border: 1.4px solid #9999997a;
+  padding: 1rem;
+}
+.done-btn {
+  font-weight: 600;
+  margin-left: 4%;
+  width: 20%;
+  border-radius: 5px;
+  color: #ede8f1;
+  background-color: #5200a3;
+  padding: 1rem 2.4rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+.done-btn:hover {
+  color: #5200a3;
+  background-color: #ede8f1;
+  border: none;
+}
+
+.status-name {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #000;
+}
+.check-priority {
+  display: flex;
+  gap: 5rem;
+}
+
+.priority {
+  display: flex;
+  gap: 0.8rem;
+}
+input[type="radio"] {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #555;
+  border-radius: 2px;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+}
+
+input[type="radio"]:checked {
+  background-color: #1e90ff;
+}
+
+input[type="radio"]:checked::after {
+  content: "✔";
+  font-size: 12px;
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 3px;
+}

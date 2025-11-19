@@ -1,7 +1,9 @@
-function showToast(message) {
+export function showToast(message, type = "success") {
   const toast = document.getElementById("toast");
+
   toast.textContent = message;
   toast.style.background = type === "error" ? "#e74c3c" : "#2ecc71";
+
   toast.classList.add("show");
 
   setTimeout(() => {
