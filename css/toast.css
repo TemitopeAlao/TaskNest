@@ -29,6 +29,7 @@
 .toast.show {
   opacity: 1;
   pointer-events: auto;
+  z-index: 99999999999999;
 }
 
 .spinner {
@@ -75,4 +76,11 @@
   font-size: 18px;
   margin-top: 5px;
   color: #444;
+}
+
+@media (max-width: 450px) {
+  .toast {
+    font-size: 1.3rem !important;
+    max-width: 100vw !important;
+  }
 }

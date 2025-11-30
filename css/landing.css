@@ -1,6 +1,6 @@
 #hero {
   display: grid;
-  padding-top: 70px;
+  padding-top: 7rem;
   grid-template-columns: 1fr 1fr;
   background: #f2e6ff;
 }
@@ -20,7 +20,7 @@
   flex-direction: column;
   justify-content: center;
   padding: 0 80px;
-  gap: 30px;
+  gap: 3rem;
   animation-name: moveInLeft;
   animation-duration: 1s;
   animation-timing-function: ease-out;
@@ -238,6 +238,7 @@ ion-icon {
 
 .card__heading-span {
   background: linear-gradient(135deg, #b49dfc, #8c6ff8);
+  background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
   font-weight: 600;

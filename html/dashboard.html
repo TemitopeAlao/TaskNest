@@ -35,17 +35,21 @@
     <link rel="stylesheet" href="/css/dashboard.css" />
     <link rel="stylesheet" href="/css/toast.css" />
     <link rel="stylesheet" href="/css/toggle.css" />
+            <link rel="stylesheet" href="/css/allTask.css" />
     <link rel="stylesheet" href="/css/task.css" />
 
-  </head>
+</head>
   <body>
     <header class="dashboard-header">
+      <button id="navToggle" class="nav-toggle">
+    <ion-icon name="menu-outline"></ion-icon>
+  </button>
       <a href="landing.html" class="logo__text">TaskNest</a>
 
       <form class="header__search" role="search">
         <input
           type="search"
-          placeholder="Search your task here..."
+          placeholder="Search tasks by title or description..."
           id="search"
         />
         <div class="search__icon">
@@ -86,27 +90,28 @@
           <input id="file" type="file" accept="image/*" hidden />
 
           <div class="profile-info">
-            <p class="user_name">Alao Temitope</p>
-            <p class="user_email">alaotemitope36@gmail.com</p>
+            <p class="user_name"></p>
+            <p class="user_email"></p>
           </div>
         </div>
         <div class="nav-list-box">
           <ul class="side__nav-lists">
-            <li id="dashboard-link">
+            <li id="dashboard-link" class="clicked-nav">
               <ion-icon name="pie-chart"></ion-icon>
               <span>Dashboard</span>
             </li>
-            <li>
-              <ion-icon name="wallet-outline"></ion-icon>
-              <span>My Task</span>
-            </li>
+        <li id="tasks-link">
+  <ion-icon name="wallet-outline"></ion-icon>
+  <span>My Task</span>
+</li>
+<li class="vital-nav">
+  <ion-icon name="alert"></ion-icon>
+  <span>Vital Tasks</span>
+</li>
+
             <li>
               <ion-icon name="list-outline"></ion-icon>
-              <span>Task Categories</span>
-            </li>
-            <li>
-              <ion-icon name="alert"></ion-icon>
-              <span>Vital Task</span>
+              <span>Account Information</span>
             </li>
           </ul>
           <div class="logout">
@@ -116,23 +121,24 @@
         </div>
       </nav>
 
-      <div class="dashboard-container">
+      <section id="dashboard-container">
         <h1 class="welcome">Welcome back, <span class="user-name"></span>👋</h1>
 
-        <section id="dashboard-overview">
+        <div id="dashboard-overview">
           <div class="to-do">
             <div class="task-group-header">
               <ion-icon name="receipt-outline"></ion-icon>
               <h3>To-Do</h3>
               <button id="addTaskBtn"><span>&plus;</span>Add Task</button>
             </div>
+         
 
             <div id="todoList" class="task-list">
               <button id="addNewTaskBtn">
-                <ion-icon name="add-circle-outline"></ion-icon>
-              </button>
-              <p>Create your first task...</p>
+
             </div>
+              <a id="seeAllTasksBtn" class="see-all-tasks-btn">&Rarr; See All Tasks</a>
+
           </div>
           <div class="dashboard">
             <div class="task-status">
@@ -177,8 +183,34 @@
               <div id="completedList" class="task-list"></div>
             </div>
           </div>
+        </div>
+      </section>
+
+        <section id="tasks-section">
+          <div class="heading">
+         <h1 class="all-task-title">All Tasks</h1>
+ <label>
+  <input type="checkbox" id="sortDueCheckbox">
+  Sort by Due Date
+</label>
+
+   <button id="myTaskBtn"><span>&plus;</span>Add a New Task</button>
+          </div>  
+       
+
+ <div id="allTasksList">
+ 
+ </div> 
         </section>
-      </div>
+      <section id="vital-tasks-section">
+  <div class="heading">
+    <h1 class="vital-tasks-title">Vital Task</h1>
+  </div>
+  <div id="vitalTasksList" class="task-list">
+    <p>No vital task yet...</p>
+  </div>
+</section>
+
     </main>
     <div id="addTaskForm" class="add__Task">
       <div class="modal-form">
@@ -191,8 +223,11 @@
           <label for="title">Title</label>
           <input type="text" id="title" required />
 
-          <label for="date">Date</label>
+          <label for="date">Due date</label>
           <input type="date" id="date" required />
+
+          <label for="time">Due time</label>
+          <input type="time" id="time" required />
 
           <label for="priority">Priority</label>
           <div class="check-priority">
@@ -227,20 +262,27 @@
         </form>
       </div>
     </div>
-    <div id="toast" class="toast"></div>
-  </body>
-  <script
-    type="module"
-    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-  ></script>
-  <script
-    nomodule
-    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-  ></script>
+  
 
-  <script type="module" src="../js/main.js"></script>
-  <script type="module" src="../js/api.js"></script>
-  <script type="module" src="../js/auth.js"></script>
-  <script type="module" src="../js/task.js"></script>
-  <script type="module" src="../js/dashboard.js"></script>
+    </div>
+    <div id="toast" class="toast"></div>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/api.js"></script>
+    <script type="module" src="../js/auth.js"></script>
+    <script type="module" src="../js/task.js"></script>
+        <script type="module" src="../js/allTask.js"></script>
+         <script type="module" src="../js/vitalTask.js"></script>
+  
+    <script type="module" src="../js/dashboard.js"></script>
+  </body>
 </html>

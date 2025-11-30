@@ -1,0 +1,185 @@
+.task-card {
+  border: 1.5px solid #ccc;
+  background-color: #fff;
+  border-radius: 8px;
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.task-card .complete-btn {
+  display: inline-block;
+}
+
+.task-card.overdue .complete-btn {
+  display: none;
+}
+
+.task-card.overdue .delete-btn {
+  display: inline-block;
+}
+
+.task-desc {
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  line-height: 1.5rem;
+  margin-top: 0.5rem;
+  padding-bottom: 0.8rem;
+  color: #333;
+  text-align: start;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #555;
+  text-transform: lowercase;
+}
+
+.task-top {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 1rem;
+}
+
+.status-circle {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.status-circle.completed {
+  background-color: #05a301;
+}
+.status-circle.overdue {
+  background-color: red;
+}
+.status-circle.in-progress {
+  background-color: #0225ff;
+}
+
+.task-title {
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: black;
+  text-transform: uppercase;
+}
+
+.task-date {
+  margin-left: auto;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.task-bottom {
+  margin-top: 0.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.priority {
+  color: black;
+  font-weight: 500;
+}
+
+.status.in-progress {
+  color: #0225ff;
+  font-weight: 700;
+}
+.status.completed {
+  color: #05a301;
+  font-weight: 700;
+}
+.status.overdue {
+  color: red;
+  font-weight: 700;
+}
+
+.complete-btn,
+.delete-btn,
+.undo-btn,
+.edit-btn {
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+.complete-btn:hover,
+.delete-btn:hover,
+.undo-btn:hover {
+  border: 1px solid #e74c3c;
+}
+.icon-btn ion-icon {
+  font-size: 1.5rem !important;
+  font-weight: 800;
+}
+.undo-btn {
+  background-color: bisque;
+}
+.complete-btn {
+  background-color: #05a301;
+  color: #fff;
+}
+
+.delete-btn {
+  background-color: #e74c3c;
+  color: #fff;
+}
+.delete-btn ion-icon,
+.complete-btn ion-icon {
+  margin-top: 0.01rem !important;
+}
+
+.task-card.overdue {
+  background-color: #f0f0f0;
+}
+.priority .low {
+  color: red;
+}
+
+.priority .moderate {
+  color: rgb(130, 215, 243);
+}
+
+.priority .extreme {
+  color: green;
+}
+.completed-text {
+  text-decoration: line-through;
+}
+
+.actionBtn {
+  display: flex;
+  gap: 1.5rem;
+}
+
+@media (max-width: 750px) {
+  .actionBtn {
+    gap: 0.8rem;
+  }
+  .task-title {
+    font-weight: 600;
+  }
+  .complete-btn,
+  .delete-btn,
+  .undo-btn,
+  .edit-btn {
+    padding: 3px 6px;
+  }
+  .icon-btn ion-icon {
+    font-size: 1.3rem !important;
+  }
+}
+
+.show-more {
+  color: #0225ff;
+  font-size: 1rem;
+  font-weight: 100;
+}

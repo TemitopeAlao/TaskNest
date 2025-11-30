@@ -185,3 +185,13 @@ body.dark-mode #search {
   background-color: #49474b;
   color: white;
 }
+body.dark-mode .task-card,
+body.dark-mode .task-card h4 {
+  background-color: #444;
+  color: #dcd0ff;
+}
+
+body.dark-mode #allTasksList,
+body.dark-mode #vital-tasks-section {
+  background-color: #120a1a;
+}

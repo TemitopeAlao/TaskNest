@@ -11,7 +11,7 @@ export function showToast(message, type = "success") {
   }, 2000);
 }
 
-function setLoading(button, isLoading) {
+export function setLoading(button, isLoading) {
   if (isLoading) {
     button.disabled = true;
     button.dataset.original = button.textContent;
@@ -145,7 +145,7 @@ const authSignup = async function (e) {
 
     setTimeout(() => {
       window.location.href = "login.html";
-    }, 1200);
+    }, 1000);
   } catch (err) {
     showToast("Network error. Try again.", "error");
   } finally {
@@ -205,7 +205,7 @@ const authLogin = async function (e) {
 
     setTimeout(() => {
       window.location.href = "dashboard.html";
-    }, 1200);
+    }, 1000);
   } catch (err) {
     showToast("Network error. Try again.", "error");
   } finally {
@@ -215,3 +215,26 @@ const authLogin = async function (e) {
 
 document.querySelector("#signup-form")?.addEventListener("submit", authSignup);
 document.querySelector("#login-form")?.addEventListener("submit", authLogin);
+
+export const getUserRecord = async () => {
+  const token = localStorage.getItem("userToken");
+  if (!token) return null;
+
+  try {
+    const res = await fetch(
+      "https://x8ki-letl-twmt.n7.xano.io/api:o02AIwfn/auth/me",
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    const data = await res.json();
+    localStorage.setItem("userData", JSON.stringify(data));
+    return data;
+  } catch (err) {
+    console.error(err);
+    return null;
+  }
+};

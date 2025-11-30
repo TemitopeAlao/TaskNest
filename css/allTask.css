@@ -1,0 +1,86 @@
+#tasks-section {
+  display: none;
+}
+#tasks-section .heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 8rem;
+  margin-bottom: 1.8rem;
+}
+.heading label {
+  font-size: 1.3rem;
+}
+#allTasksList,
+#vital-tasks-section {
+  height: 100vh;
+  padding: 3rem;
+  margin-bottom: 3rem;
+  margin-right: 8rem;
+  background: #f5f8ff;
+  border: 1px solid #99999973;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+  display: grid;
+  border-radius: 1rem;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  overflow-y: auto;
+}
+
+#myTaskBtn span {
+  font-size: 2rem;
+  color: #ff6767;
+  margin-right: 1rem;
+}
+
+#myTaskBtn {
+  background: none;
+  outline: none;
+  border: none;
+  color: #999;
+  font-size: 1.5rem;
+}
+#vital-tasks-section {
+  display: none;
+}
+
+#vitalTasksList {
+  width: 100%;
+}
+#vitalTasksList p {
+  font-size: 2rem;
+}
+#vitalTasksList .actionBtn {
+  display: none;
+}
+
+#vitalTasksList .extreme {
+  font-weight: 800;
+}
+@media (max-width: 940px) {
+  #tasks-section .heading {
+    margin-bottom: 1rem;
+  }
+  #allTasksList,
+  #vital-tasks-section {
+    margin-right: 5rem !important;
+  }
+}
+
+@media (max-width: 810px) {
+  #allTasksList,
+  #vital-tasks-section {
+    padding: 2rem !important;
+    margin-right: 4rem !important;
+  }
+}
+@media (max-width: 750px) {
+  html {
+    font-size: 9px;
+  }
+
+  #allTasksList,
+  #vital-tasks-section {
+    margin-right: 2rem !important;
+  }
+}
