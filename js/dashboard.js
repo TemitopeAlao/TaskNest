@@ -184,7 +184,7 @@ logoutBtn.addEventListener("click", () => {
   showToast("You have been logged out");
   localStorage.clear();
 
-  setTimeout(() => (window.location.href = "landing.html"), 800);
+  setTimeout(() => (window.location.href = "index.html"), 800);
 });
 
 calendarTrigger.addEventListener("click", () => {

@@ -17,9 +17,9 @@ The app uses the **Xano API** for storing and retrieving tasks.
 
 2. Open the project directory
 
-3. Locate the `landing.html` file inside the main folder
+3. Locate the `index.html` file inside the main folder
 
-4. Double-click `landing.html` to open it in your browser
+4. Double-click `index.html` to open it in your browser
    No extra setup or build step is required
 
 ## Technologies used
